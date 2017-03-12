@@ -1,4 +1,4 @@
 # This is my slides repository
 
-- [template](http://iwamatsu0430.github.io/slides/template/)
+- [template](https://iwamatsu0430.github.io/slides/template/index.html)
   - slide template
