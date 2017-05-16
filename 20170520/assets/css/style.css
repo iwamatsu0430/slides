@@ -1,3 +1,27 @@
+counter {
+  display: none;
+}
+
+*[data-step="true"] {
+  visibility: hidden;
+}
+
+*[data-step="true"].show {
+  visibility: visible;
+}
+
+.arrow-bottom {
+  width: 0px;
+  border-color: #cdd8ec;
+  border-style: solid;
+  border-width: 30px;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  top: 15px;
+}
+
 .lp-gradation {
   position: absolute;
   top: 0;
@@ -30,9 +54,11 @@
 }
 
 .study-circle {
-  margin: 0 auto;
+  /*position: absolute;
+  top: 50%;
+  left: 50%;*/
   width: 500px;
   height: 500px;
   border-radius: 500px;
-  border: 10px solid #CCC;
+  border: 50px solid #CCC;
 }

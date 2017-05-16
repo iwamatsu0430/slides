@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -47,7 +48,7 @@
             2015年4月 新卒入社<br>
             入社以来 HRMOS事業部でATS<small>※</small>開発に携わる<br>
             入社以前はC#で医療システムのアルバイトなど<br>
-            最近よく「わかまつ」と間違えられます。😡
+            <span data-step=true data-step-count=1>最近よく「わかまつ」と間違えられます。😡</span>
           </p>
         </div>
       </div>
@@ -56,6 +57,7 @@
           <p class="alignright">※Applicant Tracking System</p>
         </div>
       </footer>
+      <counter data-count=1 />
     </section>
 
     <section>
@@ -138,17 +140,18 @@
       </header>
       <div class="wrap">
         <ul class="flexblock specs aligncenter">
-          <li>
+          <li data-step=true data-step-count=1>
             <h3 style="font-size: 4rem;">Scala素人がリファクタリングをするまで</h3>
           </li>
-          <li>
+          <li data-step=true data-step-count=2>
             <h3 style="font-size: 4rem;">機能開発優先の中どうやってリファクタリングを進めたか</h3>
           </li>
-          <li>
+          <li data-step=true data-step-count=3>
             <h3 style="font-size: 4rem;">試行の結果、現在</h3>
           </li>
         </ul>
       </div>
+      <counter data-count=3 />
     </section>
 
     <section>
@@ -217,13 +220,20 @@
           <div class="column">
             <h3>読書会</h3>
             <ul class="flexblock specs">
-              <li>意地でも継続する。ちゃんとやりきる。</li>
-              <li>分からないところをリストアップ・質問する</li>
-              <li>コードサンプルは全てさわる</li>
+              <li data-step=true data-step-count=1>
+                <p>意地でも継続する。ちゃんとやりきる。</p>
+              </li>
+              <li data-step=true data-step-count=2>
+                <p>分からないところをリストアップ・質問する</p>
+              </li>
+              <li data-step=true data-step-count=3>
+                <p>コードサンプルは全てさわる</p>
+              </li>
             </ul>
           </div>
         </div>
       </div>
+      <counter data-count=3 />
     </section>
 
     <section>
@@ -242,13 +252,20 @@
           <div class="column">
             <h3>車輪の再発明をしてみる</h3>
             <ul class="flexblock specs">
-              <li>HTTPサーバをつくってみた</li>
-              <li>Qiita, StackOverflow禁止、RFC、既存実装のみ参照可能</li>
-              <li>気付いたら弊社の新卒研修になってた</li>
+              <li data-step=true data-step-count=1>
+                <p>HTTPサーバをつくってみた</p>
+              </li>
+              <li data-step=true data-step-count=2>
+                <p>Qiita, StackOverflow禁止、RFC、既存実装のみ参照可能</p>
+              </li>
+              <li data-step=true data-step-count=3>
+                <p>気付いたら弊社の新卒研修になってた</p>
+              </li>
             </ul>
           </div>
         </div>
       </div>
+      <counter data-count=3 />
     </section>
 
     <section>
@@ -267,13 +284,20 @@
           <div class="column">
             <h3>OSSのコードを読んでみる</h3>
             <ul class="flexblock specs">
-              <li>Playframework, Scalaz, Slick, etc...</li>
-              <li>git cloneしてないと怒られた</li>
-              <li>実装の詳細を追えるようになると安心して使える</li>
+              <li data-step=true data-step-count=1>
+                <p>Playframework, Scalaz, Slick, etc...</p>
+              </li>
+              <li data-step=true data-step-count=2>
+                <p>git cloneしてないと怒られた</p>
+              </li>
+              <li data-step=true data-step-count=3>
+                <p>実装の詳細を追えるようになると安心して使える</p>
+              </li>
             </ul>
           </div>
         </div>
       </div>
+      <counter data-count=3 />
     </section>
 
     <section>
@@ -282,8 +306,28 @@
         <h2>I can develop by Scala a little</h2>
       </header>
       <div class="wrap">
-        <div class="study-circle"></div>
+        <ul class="flexblock steps">
+          <li>
+            <h3 class="aligncenter">読書会</h3>
+            <p class="aligncenter">インプット</p>
+          </li>
+          <li>
+            <div class="process step-2"></div>
+            <h3 class="aligncenter">車輪の再発明をしてみる</h3>
+            <p class="aligncenter">実践</p>
+          </li>
+          <li>
+            <div class="process step-3"></div>
+            <h3 class="aligncenter">OSSのコードを読んでみる</h3>
+            <p class="aligncenter">応用</p>
+          </li>
+        </ul>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
+        <h3 class="aligncenter" data-step=true data-step-count=1 style="margin-top: 30px;">繰り返し取り組む</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
+        <p class="aligncenter" data-step=true data-step-count=2 style="margin-top: 30px;">ワタシハScalaチョットデキル</p>
       </div>
+      <counter data-count=2 />
     </section>
 
     <section>
@@ -304,7 +348,56 @@
 </script>
 <script defer src="../assets/js/svg-icons.js"></script>
 <script>
-  ws.registerPlugin('');
+  const stepEventName = 'ws:slide-step';
+  const resetEventName = 'ws:slide-reset';
+  const goNextLogic = ws.goNext;
+  var targetSection;
+  ws.el.addEventListener("ws:slide-change", function(e) {
+    ws.goNext = goNextLogic;
+    var currentCount = 0;
+    var maxCount = 0;
+    const currentSlide = e.detail.currentSlide;
+    if (targetSection) {
+      ws.el.dispatchEvent(new CustomEvent(resetEventName, {detail: {
+        targetSection: targetSection
+      }}));
+    }
+    targetSection = document.querySelector('#section-' + currentSlide);
+    const counter = targetSection.querySelector("counter");
+
+    if (counter) {
+      maxCount = Number(counter.attributes['data-count'].value);
+      if (maxCount > 0) {
+        ws.goNext = function() {
+          currentCount++;
+          ws.el.dispatchEvent(new CustomEvent(stepEventName, {detail: {
+            targetSection: targetSection,
+            currentCount: currentCount,
+            maxCount: maxCount
+          }}));
+          if (currentCount >= maxCount) {
+            ws.goNext = goNextLogic;
+            currentCount = 0;
+            maxCount = 0;
+          }
+        };
+      }
+    }
+  });
+
+  ws.el.addEventListener(stepEventName, function(e) {
+    const targets = e.detail.targetSection.querySelectorAll('*[data-step="true"][data-step-count="' + e.detail.currentCount + '"]');
+    targets.forEach(function(target) {
+      target.classList.add('show');
+    });
+  })
+
+  ws.el.addEventListener(resetEventName, function(e) {
+    const targets = e.detail.targetSection.querySelectorAll('*[data-step="true"]');
+    targets.forEach(function(target) {
+      target.classList.remove('show');
+    });
+  })
 </script>
 
 </body>
