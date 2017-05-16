@@ -1,0 +1,312 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slide Template</title>
+  <link rel="stylesheet" type='text/css' media='all' href="../assets/css/base.css">
+  <link rel="stylesheet" type='text/css' media='all' href="../assets/css/colors.css">
+  <link rel="stylesheet" type='text/css' media='all' href="../assets/css/svg-icons.css">
+  <link rel="stylesheet" type='text/css' media='all' href="./assets/css/style.css">
+</head>
+
+<body>
+
+<main role="main">
+  <article id="webslides" class="horizontal">
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1 style='font-size: 5em; line-height: 1.2em;'>
+          <strong>Scalaによる<br>サービス開発現場での継続的<br>リファクタリングの実践</strong>
+        </h1>
+        <p class="text-intro">
+          <time>2017/05/20</time><br>
+          株式会社ビズリーチ<br>
+          岩松竜也
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap">
+        <div class="content-left">
+          <img class="aligncenter" style='width: 200px;' src="../assets/img/me_real.jpg">
+
+          <p class="aligncenter" style="margin-top: 20px;">
+            <img style="width: 32px;" src="../assets/img/github_icon.png">
+            <a style="position: relative; top: -10px; left: 10px;" href="https://github.com/iwamatsu0430">@iwamatsu0430</a>
+          </p>
+        </div>
+        <div class="content-right">
+          <h1>岩松竜也</h1>
+          <p class="text-intro">
+            株式会社ビズリーチ HRMOS事業部<br>
+            2015年4月 新卒入社<br>
+            入社以来 HRMOS事業部でATS<small>※</small>開発に携わる<br>
+            入社以前はC#で医療システムのアルバイトなど<br>
+            最近よく「わかまつ」と間違えられます。😡
+          </p>
+        </div>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright">※Applicant Tracking System</p>
+        </div>
+      </footer>
+    </section>
+
+    <section>
+      <span class="background" style="background-image:url('./assets/img/hrmos_key_visual.jpg')"></span>
+      <div class="lp-gradation"></div>
+      <header>
+        <h2 style="color: #fff;">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_hr.svg" alt="HR">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_m.svg" alt="M">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_os.svg" alt="OS">
+          とは
+        </h2>
+      </header>
+      <div class="wrap aligncenter">
+        <p style="font-size: 38px; color: white;">人が活躍する未来は、企業が人を活用する未来。</p>
+        <figure>
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_hr.svg" alt="HR">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_m.svg" alt="M">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_os.svg" alt="OS">
+        </figure>
+        <p style="color: #fff; margin-top: 20px;">
+          「HRMOS（ハーモス）」は、企業の人事を可視化し、<br>
+          戦略人事を実現するソリューション。
+        </p>
+        <p style="color: #fff; margin-top: 20px;">
+          AI（人工知能）が人材活用の最適化をサポートし、<br>
+          企業の成長に貢献します。
+        </p>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright"><a class="lp-link" target="_blank" href="https://hrmos.co/">詳細を見る</a></p>
+        </div>
+      </footer>
+    </section>
+
+    <section>
+      <video class="background-video" autoplay muted loop>
+        <source src="./assets/video/hrmos_ats.mp4" type="video/mp4">
+      </video>
+      <div class="lp-gradation"></div>
+      <header>
+        <h2 style="color: #fff;">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_hr.svg" alt="HR">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_m.svg" alt="M">
+          <img style="height: 42px;" src="./assets/img/hrmos_logo_os.svg" alt="OS">
+          採用管理とは
+        </h2>
+      </header>
+      <div class="wrap">
+        <p style="font-size: 36px; color: #fff; font-weight: 700; letter-spacing: 2px!important; line-height: 48px;">
+          HRテック（HR × Technology）で<br>
+          採用を強くする
+        </p>
+        <p style="color: #fff;">
+          HRMOS採用管理は、業務をシンプルにし、<br>
+          日々のオペレーションからあなたを解放します。<br>
+          採用活動のデータを可視化・分析し、<br>
+          戦略的な人材獲得を実現します。
+        </p>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright"><a class="lp-link" target="_blank" href="https://hrmos.co/saiyo/">詳細を見る</a></p>
+        </div>
+      </footer>
+    </section>
+
+    <!-- <section>
+      <span class="background"></span>
+      <header>
+        <h2>技術スタック</h2>
+      </header>
+    </section> -->
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>今日話す事</h2>
+      </header>
+      <div class="wrap">
+        <ul class="flexblock specs aligncenter">
+          <li>
+            <h3 style="font-size: 4rem;">Scala素人がリファクタリングをするまで</h3>
+          </li>
+          <li>
+            <h3 style="font-size: 4rem;">機能開発優先の中どうやってリファクタリングを進めたか</h3>
+          </li>
+          <li>
+            <h3 style="font-size: 4rem;">試行の結果、現在</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>こんなことありませんか？</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column">
+            <h3>
+              参入したプロジェクトのコードが汚すぎる。<br>
+              ストレスがたまるのでついカッとなってリファクタリングしてやった。
+            </h3>
+          </div>
+          <div class="column">
+            <iframe width="100%" height="284" src="https://c.mangaloo.jp/embed/507047/760018/788948?align=left&width=400" frameborder="0"></iframe>
+            <iframe width="100%" height="274" src="https://c.mangaloo.jp/embed/484751/760018/788948?align=left&width=400" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>そんなことはなかった</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column">
+            <h3>というかScalaが全然わかっていませんでした。</h3>
+          </div>
+          <div class="column">
+            <img style="margin: 0 auto;" width="200" src="./assets/img/school_boy.png">
+            <p style="writing-mode: vertical-rl; position: absolute; right: 50px; font-size: 2em;">ぜんぜん<br>わからない</p>
+            <p style="writing-mode: vertical-rl; position: absolute; left: 50px; font-size: 2em;">俺たちは<br>雰囲気で<br>Scalaを書いている</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>どうやってScalaを学んだか</h2>
+      </header>
+      <div class="wrap aligncenter">
+        <h3>せっかくなのでご参考にどうぞ</h3>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>こんなことしました</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <a href="https://www.amazon.co.jp/dp/B01LYPRFI7/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1" target="_blank">
+              <img width="300" src="./assets/img/scalable_programming.jpg">
+            </a>
+            <p>Scalaスケーラブルプログラミング第3版 ¥4,600</p>
+          </div>
+          <div class="column">
+            <h3>読書会</h3>
+            <ul class="flexblock specs">
+              <li>意地でも継続する。ちゃんとやりきる。</li>
+              <li>分からないところをリストアップ・質問する</li>
+              <li>コードサンプルは全てさわる</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>こんなことしました</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <a href="https://speakerdeck.com/todokr/clojureniru-men-sitehttpsabawotukututemitahua" target="_blank">
+              <img width="400" src="./assets/img/http_server.png">
+            </a>
+            <p>一緒にやってた同期の発表が詳しい</p>
+          </div>
+          <div class="column">
+            <h3>車輪の再発明をしてみる</h3>
+            <ul class="flexblock specs">
+              <li>HTTPサーバをつくってみた</li>
+              <li>Qiita, StackOverflow禁止、RFC、既存実装のみ参照可能</li>
+              <li>気付いたら弊社の新卒研修になってた</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>こんなことしました</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <a href="https://speakerdeck.com/iwamatsu0430/scalazdeuebuapurimocha-la-head-cha-la" target="_blank">
+              <img width="400" src="./assets/img/scalaz_slide.png">
+            </a>
+            <p>アウトプットも忘れずに</p>
+          </div>
+          <div class="column">
+            <h3>OSSのコードを読んでみる</h3>
+            <ul class="flexblock specs">
+              <li>Playframework, Scalaz, Slick, etc...</li>
+              <li>git cloneしてないと怒られた</li>
+              <li>実装の詳細を追えるようになると安心して使える</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>I can develop by Scala a little</h2>
+      </header>
+      <div class="wrap">
+        <div class="study-circle"></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2></h2>
+      </header>
+      <div class="wrap">
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<script src="../assets/js/webslides.js"></script>
+<script>
+  window.ws = new WebSlides();
+</script>
+<script defer src="../assets/js/svg-icons.js"></script>
+<script>
+  ws.registerPlugin('');
+</script>
+
+</body>
+
+</html>

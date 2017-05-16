@@ -1,0 +1,38 @@
+.lp-gradation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(-180deg,rgba(0,90,150,.67) 2%,rgba(0,44,74,.24) 82%);
+}
+
+.lp-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%,-50%);
+}
+
+.lp-link {
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.lp-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.3);
+}
+
+.study-circle {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  border-radius: 500px;
+  border: 10px solid #CCC;
+}
