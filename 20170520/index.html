@@ -23,7 +23,7 @@
           <strong>Scalaによる<br>サービス開発現場での継続的<br>リファクタリングの実践</strong>
         </h1>
         <p class="text-intro">
-          <time>2017/05/20</time><br>
+          <time>2017/05/20 JJUG 2017 Spring</time><br>
           株式会社ビズリーチ<br>
           岩松竜也
         </p>
@@ -61,7 +61,7 @@
     </section>
 
     <section>
-      <span class="background" style="background-image:url('./assets/img/hrmos_key_visual.jpg')"></span>
+      <span class="background" style="background-image:url('./assets/img/hrmos_key_visual2.png')"></span>
       <div class="lp-gradation"></div>
       <header>
         <h2 style="color: #fff;">
@@ -126,6 +126,7 @@
       </footer>
     </section>
 
+    <!-- TODO 技術スタック Scala使ってるくらいは書いておきたい -->
     <!-- <section>
       <span class="background"></span>
       <header>
@@ -139,19 +140,48 @@
         <h2>今日話す事</h2>
       </header>
       <div class="wrap">
+
+        <h3 class="aligncenter">リリースからそろそろ1年</h3>
+        <p class="aligncenter">おかげさまでお客様も増え、事業として急速に拡大できた。</p>
+
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
+
+        <h3 class="aligncenter" data-step=true data-step-count=1>技術的なひずみも大きくなった</h3>
+        <p class="aligncenter" data-step=true data-step-count=1>ビジネス都合の開発が優先される中、どうやってリファクタリングに取り組んできたか</p>
+
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
+
         <ul class="flexblock specs aligncenter">
-          <li data-step=true data-step-count=1>
-            <h3 style="font-size: 4rem;">Scala素人がリファクタリングをするまで</h3>
-          </li>
           <li data-step=true data-step-count=2>
-            <h3 style="font-size: 4rem;">機能開発優先の中どうやってリファクタリングを進めたか</h3>
+            <h3 style="font-size: 4rem;">Scala素人がリファクタリングできるようになるまで</h3>
           </li>
           <li data-step=true data-step-count=3>
-            <h3 style="font-size: 4rem;">試行の結果、現在</h3>
+            <h3 style="font-size: 4rem;">どうやってリファクタリングを進めたか</h3>
+          </li>
+          <li data-step=true data-step-count=4>
+            <h3 style="font-size: 4rem;">リファクタリングの結果と現在</h3>
           </li>
         </ul>
       </div>
-      <counter data-count=3 />
+      <counter data-count=4 />
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>参考文献</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <a href="http://amzn.asia/3rMcScF"><img style="max-width: 300px;" src="./assets/img/legacy_software.jpg" alt="レガシーソフトウェア改善ガイド"></a>
+          </div>
+          <div class="column">
+            <h3>Chris Birchall 「<a href="http://amzn.asia/3rMcScF">レガシーソフトウェア改善ガイド</a>」(翔泳社, 2016)</h3>
+            <p>リファクタリング当時に参考にしていたわけではないが、<br>ためになる話が多かったので</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -183,7 +213,7 @@
       <div class="wrap">
         <div class="grid vertical-align">
           <div class="column">
-            <h3>というかScalaが全然わかっていませんでした。</h3>
+            <h3>Scalaが全然わかっていませんでした。</h3>
           </div>
           <div class="column">
             <img style="margin: 0 auto;" width="200" src="./assets/img/school_boy.png">
@@ -191,16 +221,6 @@
             <p style="writing-mode: vertical-rl; position: absolute; left: 50px; font-size: 2em;">俺たちは<br>雰囲気で<br>Scalaを書いている</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <span class="background"></span>
-      <header>
-        <h2>どうやってScalaを学んだか</h2>
-      </header>
-      <div class="wrap aligncenter">
-        <h3>せっかくなのでご参考にどうぞ</h3>
       </div>
     </section>
 
@@ -288,10 +308,10 @@
                 <p>Playframework, Scalaz, Slick, etc...</p>
               </li>
               <li data-step=true data-step-count=2>
-                <p>git cloneしてないと怒られた</p>
+                <p>git cloneしてないと師匠に怒られる</p>
               </li>
               <li data-step=true data-step-count=3>
-                <p>実装の詳細を追えるようになると安心して使える</p>
+                <p>アウトプットのため、さらに読む</p>
               </li>
             </ul>
           </div>
@@ -325,7 +345,7 @@
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
         <h3 class="aligncenter" data-step=true data-step-count=1 style="margin-top: 30px;">繰り返し取り組む</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
-        <h3 class="aligncenter" data-step=true data-step-count=2 style="margin-top: 30px;">ワタシハ スカラ チョットデキル（願望）</h3>
+        <h3 class="aligncenter danger-text" data-step=true data-step-count=2 style="margin-top: 30px;">ワタシハ スカラ チョットデキル（多分）</h3>
       </div>
       <counter data-count=2 />
     </section>
@@ -355,18 +375,19 @@
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
         <h3 class="aligncenter" data-step=true data-step-count=1 style="margin-top: 30px;">プロジェクトのコードをよく見る</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
-        <h3 class="aligncenter danger-text" data-step=true data-step-count=2 style="margin-top: 30px;">もしかしてひどくない！？ 💢</h3>
+        <h3 class="aligncenter danger-text" data-step=true data-step-count=2 style="margin-top: 30px;">もしかしてやばい！？</h3>
       </div>
       <counter data-count=2 />
     </section>
 
+    <!-- TODO 課題 っていう言葉を考え直す -->
     <section>
       <span class="background"></span>
       <header>
         <h2>( ◠‿◠ )☛気づいてしまったか・・・</h2>
       </header>
       <div class="wrap">
-        <h3 class="aligncenter">HRMOSの課題</h3>
+        <h3 class="aligncenter">HRMOSのやばいところ</h3>
         <ul class="flexblock specs aligncenter">
           <li data-step=true data-step-count=1>
             <h3 style="font-size: 4rem;">「どう書く」が統一されていない</h3>
@@ -488,41 +509,45 @@
         <h2>似たような役割のコードが多い<span style="opacity: 0.3;"> or 過剰な共通化<span></h2>
       </header>
       <div class="wrap">
-        <h3 class="aligncenter">XXX</h3>
       </div>
     </section>
 
     <section>
       <span class="background"></span>
       <header>
-        <h2>何からやるか</h2>
+        <h2>問題は色々あった</h2>
       </header>
       <div class="wrap">
         <div class="grid vertical-align">
           <div class="column">
-            <h3>気に食わないやつから衝動的に倒していませんか？</h3>
+            <h3>何から手をつけるか・・・</h3>
+            <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
+            <h3 data-step=true data-step-count=1>気に食わないやつから衝動的に倒していませんか？</h3>
           </div>
-          <div class="column">
+          <div class="column" data-step=true data-step-count=1>
             <iframe width="100%" height="284" src="https://c.mangaloo.jp/embed/507047/760018/788948?align=left&width=400" frameborder="0"></iframe>
             <iframe width="100%" height="274" src="https://c.mangaloo.jp/embed/484751/760018/788948?align=left&width=400" frameborder="0"></iframe>
           </div>
         </div>
       </div>
+      <counter data-count=1 />
     </section>
 
     <section>
       <span class="background"></span>
       <header>
-        <h2>慣れてきた頃に…</h2>
+        <h2>Scalaに慣れてきたある日・・・</h2>
       </header>
       <div class="wrap">
         <h3 class="aligncenter">ぼく「この部分イケてないな…直したろ！」</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
-        <h3 data-step=true data-step-count=1 class="aligncenter">師匠「君は視座が低いね〜😊😊😊」</h3>
+        <h3 data-step=true data-step-count=1 class="aligncenter">ぼく「こう書けばイケてるんじゃね！？」</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
-        <iframe data-step=true data-step-count=2 width="100%" height="336" src="https://c.mangaloo.jp/embed/36165/760018/788948?align=center&width=500" frameborder="0"></iframe>
+        <h3 data-step=true data-step-count=2 class="aligncenter">師匠「君は視座が低いね〜😊😊😊」</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=3 style="margin-top: 30px;"></div>
+        <iframe data-step=true data-step-count=3 width="100%" height="269" src="https://c.mangaloo.jp/embed/36165/760018/788948?align=center&width=400" frameborder="0"></iframe>
       </div>
-      <counter data-count=2 />
+      <counter data-count=3 />
     </section>
 
     <section>
@@ -617,7 +642,6 @@
       <counter data-count=1 />
     </section>
 
-    <!-- TODO -->
     <section>
       <span class="background"></span>
       <header>
@@ -631,35 +655,131 @@
           </li>
           <li data-step=true data-step-count=1>
             <div class="process step-2"></div>
-            <p class="aligncenter"></p>
-            <p class="aligncenter">ルールがない</p>
+            <p class="aligncenter">ドキュメントがない・参照しづらい</p>
+            <p class="aligncenter">Scala自体に不慣れメンバーも入ってくる</p>
+            <p class="aligncenter danger-text">ルールがない</p>
           </li>
         </ul>
       </div>
-      <img data-step=true data-step-count=2 style="width: 400px; position: absolute; top: calc(50% - 230px); left: calc(50% - 200px); z-index: 100;" src="./assets/img/thinking_man.png">
-      <counter data-count=2 />
+      <counter data-count=1 />
+    </section>
+
+    <!-- TODO もうちょっと見直す -->
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>ルールがない</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter">まったくの0というわけでもない</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
+        <ul class="flexblock specs aligncenter">
+          <li>
+            <h3 style="font-size: 4rem;" data-step=true data-step-count=1>体制が頻繁にアップデートされる</h3>
+          </li>
+          <li>
+            <h3 style="font-size: 4rem;" data-step=true data-step-count=2>一月ごとに結構人が増える</h3>
+          </li>
+          <li>
+            <h3 style="font-size: 4rem;" data-step=true data-step-count=3>決まり事が陳腐化しやすい</h3>
+          </li>
+        </ul>
+      </div>
+      <counter data-count=3 />
     </section>
 
     <section>
       <span class="background"></span>
       <header>
-        <h2>大体の原因</h2>
+        <h2>原因はわかった</h2>
       </header>
       <div class="wrap">
-        <ul class="flexblock specs aligncenter">
-          <li>
-            <h3 style="font-size: 4rem;">ビジネス的な都合</h3>
-          </li>
-          <li>
-            <h3 style="font-size: 4rem;">ルールが徹底しづらい</h3>
-          </li>
-        </ul>
-        <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
-        <h3 class="aligncenter" data-step=true data-step-count=1>どうするか…</h3>
-        <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
-        <h3 class="aligncenter danger-text" data-step=true data-step-count=2>モジュール化！</h3>
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <ul class="flexblock specs aligncenter">
+              <li>
+                <h3 style="font-size: 4rem;">ビジネス的な都合</h3>
+              </li>
+              <li>
+                <h3 style="font-size: 4rem;">ルールが徹底しづらい</h3>
+              </li>
+            </ul>
+            <div class="aligncenter arrow-bottom" data-step=true data-step-count=1 style="margin-top: 30px;"></div>
+            <h3 class="aligncenter" data-step=true data-step-count=1>どうするか…</h3>
+            <div class="aligncenter arrow-bottom" data-step=true data-step-count=2 style="margin-top: 30px;"></div>
+            <h3 class="aligncenter danger-text" data-step=true data-step-count=2>モジュール化！</h3>
+          </div>
+          <div class="column aligncenter">
+            <a data-step=true data-step-count=2 href="http://amzn.asia/3rMcScF" target="_blank"><img style="max-width: 300px;" src="./assets/img/legacy_software.jpg" alt="レガシーソフトウェア改善ガイド"></a>
+          </div>
       </div>
       <counter data-count=2 />
+    </section>
+
+    <!-- TODO モジュール化のメリットを整理する -->
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>モジュール化すると…</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter">3つの<span class="danger-text">向上！</span></h3>
+        <ul class="flexblock">
+          <li data-step=true data-step-count=1>
+            <h3>品質の向上</h3>
+            <p>モジュール単位ではコード量も減るため、</p>
+          </li>
+          <li data-step=true data-step-count=2>
+            <h3>保守容易性の向上</h3>
+            <p>関心の分離を促進し、処理がひとつひとつ分かりやすくなる。他のモジュールとのインターフェイスさえ保証できれば変更が容易になる。</p>
+          </li>
+          <li data-step=true data-step-count=3>
+            <h3>自立性の向上</h3>
+            <p>機能追加やモジュールごとに別々の技術スタック</p>
+          </li>
+        </ul>
+      </div>
+      <counter data-count=3 />
+    </section>
+
+    <!-- TODO AIで図をつくる -->
+    <!--
+      もともとの構造からモジュール化していくには、各インターフェイスを整え、ロジックのありかを整理する必要がある
+    -->
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>モジュール化するためには</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter">これを・・・</h3>
+        <ul class="flexblock aligncenter">
+          <li>
+            <h3 style="font-size: 3em;">Controller</h3>
+            <ul style="margin-top: 30px">
+              <li>フレームワーク関係の処理</li>
+              <li class="danger-text">ビジネスロジック</li>
+            </ul>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Service</h3>
+            <ul style="margin-top: 30px">
+              <li>ビジネスロジック</li>
+            </ul>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Repository</h3>
+            <ul style="margin-top: 30px">
+              <li>永続層の操作</li>
+              <li class="danger-text">ビジネスロジック</li>
+            </ul>
+          </li>
+        </ul>
+        <div>
+          <p style="float: left;" class="fxxkin-business-logic">ビジネスロジック</p>
+          <p style="float: right;" class="fxxkin-business-logic">ビジネスロジック</p>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -667,9 +787,205 @@
       <header>
         <h2>モジュール化するためには</h2>
       </header>
-      <!-- TODO AIで図をつくる -->
-      <div>
-        <img src="./assets/img/rough_tobe_module.jpg" width=400>
+      <div class="wrap">
+        <h3 class="aligncenter">こうして・・・</h3>
+        <ul class="flexblock aligncenter">
+          <li>
+            <h3 style="font-size: 3em;">Controller</h3>
+            <ul style="margin-top: 30px">
+              <li>フレームワーク関係の処理</li>
+            </ul>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Service</h3>
+            <ul style="margin-top: 30px">
+              <li>ビジネスロジック</li>
+              <li class="danger-text">ビジネスロジック</li>
+              <li class="danger-text">ビジネスロジック</li>
+              <li>
+                <p style="margin: 0 auto; width: 100%;" class="fxxkin-business-logic">ビジネスロジック</p>
+              </li>
+              <li>
+                <p style="margin: 15px auto 0; width: 100%;" class="fxxkin-business-logic">ビジネスロジック</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Repository</h3>
+            <ul style="margin-top: 30px">
+              <li>永続層の操作</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="loan-pattern-comment" style="left: 60%; top: 50%; font-weight: bold;" data-step=true data-step-count=1>責務の整理</div>
+      </div>
+      <counter data-count=1 />
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>モジュール化するためには</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter">こうじゃ！！！</h3>
+        <ul class="flexblock aligncenter">
+          <li>
+            <h3 style="font-size: 3em;">Controller</h3>
+            <p>モジュールA</p>
+            <h3 style="font-size: 3em; margin-top: 30px;">Controller</h3>
+            <p>モジュールB</p>
+            <h3 style="font-size: 3em; margin-top: 30px;">Controller</h3>
+            <p>モジュールC</p>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Service</h3>
+            <ul style="margin-top: 30px">
+              <li>ビジネスロジック</li>
+              <li class="danger-text">ビジネスロジック</li>
+              <li class="danger-text">ビジネスロジック</li>
+              <li><p style="margin: 0 auto; width: 100%;" class="fxxkin-business-logic">ビジネスロジック</p></li>
+              <li><p style="margin: 15px auto 0; width: 100%;" class="fxxkin-business-logic">ビジネスロジック</p></li>
+            </ul>
+          </li>
+          <li>
+            <h3 style="font-size: 3em;">Repository</h3>
+            <ul style="margin-top: 30px">
+              <li>永続層の操作</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="loan-pattern-comment" style="left: 30%; top: 50%; font-weight: bold;" data-step=true data-step-count=1>インターフェースの統一</div>
+      </div>
+      <counter data-count=1 />
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>インターフェースの統一</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter" data-step=true data-step-count=1>Eitherを上手に使う！</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=2></div>
+        <iframe data-step=true data-step-count=2 width="100%" height="275" src="https://c.mangaloo.jp/embed/443404/760018/788948?align=center&width=400" frameborder="0"></iframe>
+        <p class="aligncenter" data-step=true data-step-count=2>会場の大体の人がこうなるのでは…</p>
+      </div>
+      <counter data-count=2 />
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>Eitherとは</h2>
+      </header>
+      <div class="wrap">
+        <h2 class="aligncenter">2通りの型を持つことができる型</h2>
+        <iframe height="350" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=R5FgeKP/0&layout=h85"></iframe>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>Eitherとは</h2>
+      </header>
+      <div class="wrap">
+        <h2 class="aligncenter">Javaで書くとだいたいこんな感じ</h2>
+        <pre style="max-height: 350px;">public class Main {
+  public static void main(String[] args) {
+    Either<Integer, String> either1 = new Left<>(1);
+    Either<Integer, String> either2 = new Right<>("hoge");
+    Either<Integer, String> either3;
+    if (true) {
+      either3 = new Left<>(1);
+    } else {
+      either3 = new Right<>("hoge");
+    }
+  }
+}
+
+abstract class Either<L, R> {}
+
+class Left<L, R> extends Either<L, R> {
+
+  public L value;
+
+  public Left(L value) {
+    this.value = value;
+  }
+}
+
+class Right<L, R> extends Either<L, R> {
+
+  public R value;
+
+  public Right(R value) {
+    this.value = value;
+  }
+}</pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>Eitherとは</h2>
+      </header>
+      <div class="wrap">
+        <h2 class="aligncenter">何が嬉しいの？</h2>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=1></div>
+        <h3 class="aligncenter" data-step=true data-step-count=1>ユーザ定義のエラーと返り値を両立できる</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=2></div>
+        <h3 class="aligncenter" data-step=true data-step-count=2>エラーが起こる事も含め、すべて型で表せる</h3>
+        <div class="aligncenter arrow-bottom" data-step=true data-step-count=3></div>
+        <h3 class="aligncenter danger-text" data-step=true data-step-count=3>
+          メソッドの返り値をすべてEitherで統一できる<small>※</small><br>
+          バイバイException！！
+        </h3>
+      </div>
+      <footer data-step=true data-step-count=3>
+        <p class="alignright">※ Exceptionが完全に消えるわけではありません</p>
+      </footer>
+      <counter data-count=3 />
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>EitherT</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column aligncenter">
+            <a href="https://speakerdeck.com/iwamatsu0430/scalazdeuebuapurimocha-la-head-cha-la" target="_blank">
+              <img width="400" src="./assets/img/scalaz_slide.png">
+            </a>
+            <p>
+              こちらでEitherTの解説もしています。<br>
+              もしくは<a href="http://d.hatena.ne.jp/xuwei/20140919/1411136788">Z神の記事</a>を御覧ください。
+            </p>
+          </div>
+          <div class="column">
+            <h3>
+              実際にはFuture, DBIO<span>※</span>などの要素も入ってくるが<br>
+              各インターフェイスをいい感じに統一する事ができる
+            </h3>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>※ 遅延評価やマルチスレッド処理、トランザクション管理のための仕組み</p>
+      </footer>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>利用イメージ</h2>
+      </header>
+      <div class="wrap">
+        <iframe height="350" frameborder="0" style="width: 100%; overflow: hidden;" src="https://embed.scalafiddle.io/embed?sfid=R5FgeKP/3&layout=h85"></iframe>
       </div>
     </section>
 
