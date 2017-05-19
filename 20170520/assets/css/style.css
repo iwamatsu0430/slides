@@ -103,3 +103,10 @@ counter {
 	border-width: 14px;
 	margin-top: -15px;
 }
+
+.simple-table,
+.simple-table tr,
+.simple-table td {
+  border: none;
+  background: none !important;
+}
