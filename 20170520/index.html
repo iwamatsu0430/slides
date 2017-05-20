@@ -125,13 +125,25 @@
       </footer>
     </section>
 
-    <!-- TODO middle 技術スタック Scala使ってる、APIとフロントが分かれていることには触れたい -->
-    <!-- <section>
+    <section>
       <span class="background"></span>
       <header>
-        <h2>技術スタック</h2>
+        <h2>技術スタック(ざっくり)</h2>
       </header>
-    </section> -->
+      <div class="wrap">
+        <ul class="flexblock specs">
+          <li>
+            <h3 class="aligncenter" style="font-size: 3rem;">Scala</h3>
+            <h3 class="aligncenter" style="font-size: 3rem;">Playframework</h3>
+            <h3 class="aligncenter" style="font-size: 3rem;">SPA(Single Page Application)</h3>
+            <h3 class="aligncenter" style="font-size: 3rem;">AngularJS</h3>
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <p class="alignright">※ Java使ってません🙇</p>
+      </footer>
+    </section>
 
     <!-- TODO low 3点は最後のまとめでも拾った方がよいかも -->
     <section>
@@ -174,7 +186,7 @@
       <div class="wrap">
         <div class="grid vertical-align">
           <div class="column aligncenter">
-            <a href="http://amzn.asia/3rMcScF"><img style="max-width: 300px;" src="./assets/img/legacy_software.jpg" alt="レガシーソフトウェア改善ガイド"></a>
+            <a href="http://amzn.asia/3rMcScF" target="_blank"><img style="max-width: 300px;" src="./assets/img/legacy_software.jpg" alt="レガシーソフトウェア改善ガイド"></a>
           </div>
           <div class="column">
             <h3>Chris Birchall 「<a href="http://amzn.asia/3rMcScF">レガシーソフトウェア改善ガイド</a>」(翔泳社, 2016)</h3>
@@ -184,7 +196,26 @@
       </div>
     </section>
 
-    <!-- TODO middle Scalaの話が少なくなっちゃったの注意書きがほしい　ピープルウェア　 -->
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>注意書き</h2>
+      </header>
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column">
+            <h3>Scalaの話があまりなくなってしまいました 🙇</h3>
+            <p>「リファクタリング」をテーマにしているとコード外の話が多くなってしまった</p>
+            <h3 data-step=true data-step-count=1>"実際のところ、ソフトウェア開発上の問題の多くは、技術的というより社会学的なものである"</h3>
+          </div>
+          <div class="column aligncenter" data-step=true data-step-count=1>
+            <a href="http://amzn.asia/5v4roTo" target="_blank"><img style="max-width: 300px;" src="./assets/img/peopleware.jpg" alt="ピープルウエア"></a>
+            <p>Tom DeMarco 「<a href="http://amzn.asia/5v4roTo" target="_blank">ピープルウエア</a>」(日経BP社; 第3版, 2013)</p>
+          </div>
+        </div>
+      </div>
+      <counter data-count=1 />
+    </section>
 
     <section>
       <span class="background"></span>
@@ -679,7 +710,19 @@ def find2(id: Id): Option[User] = ???</pre>
       <counter data-count=1 />
     </section>
 
-    <!-- TODO middle つなぎページを用意する 主観的に駄目な箇所をリファクタリングするのではなく、客観的に重要な箇所、長期的な改善に繋がる箇所（クリティカルパス）を探す必要がある -->
+    <section>
+      <span class="background"></span>
+      <header>
+        <h2>つまり…</h2>
+      </header>
+      <div class="wrap">
+        <h3 class="aligncenter">
+          客観的に重要な箇所や<br>
+          長期的な改善、価値につながる箇所<br>
+          （<span class="danger-text">クリティカルパス</span>）を探す必要がある
+        </h3>
+      </div>
+    </section>
 
     <section>
       <span class="background"></span>
@@ -782,7 +825,7 @@ def find2(id: Id): Option[User] = ???</pre>
       <div class="wrap">
         <h3 class="aligncenter">現状の把握、原因の究明はできた</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=1></div>
-        <h3 class="aligncenter" data-step=true data-step-count=1>先に理想状態を考える</h3>
+        <h3 class="aligncenter" data-step=true data-step-count=1>理想状態を考える</h3>
         <div class="aligncenter" data-step=true data-step-count=1>
           <img style="width: 250px; margin-top: 30px;" src="./assets/img/gyapu.png">
         </div>
@@ -807,7 +850,7 @@ def find2(id: Id): Option[User] = ???</pre>
             <p class="aligncenter">テストが揃っておりバグ、障害も少ない<br>安定して価値提供が可能である</p>
           </li>
           <li data-step=true data-step-count=3>
-            <h3 class="aligncenter" style="font-size: 3rem;">保守しやすく</h3>
+            <h3 class="aligncenter" style="font-size: 3rem;">高い保守性</h3>
             <p class="aligncenter">
               プロジェクトのルールは明確であり、実装の意図も分かりやすい<br>
               新規メンバーであっても保守がしやすい状態である
@@ -833,7 +876,7 @@ def find2(id: Id): Option[User] = ???</pre>
       <div class="wrap">
         <h3 class="aligncenter">理想と現状の差</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=1></div>
-        <h3 class="aligncenter" data-step=true data-step-count=1>たいへん大きい 😵</h3>
+        <h3 class="aligncenter danger-text" data-step=true data-step-count=1>たいへん大きい 😵</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=2></div>
         <h3 class="aligncenter" data-step=true data-step-count=2>施策として出てきたもの</h3>
         <div class="aligncenter arrow-bottom" data-step=true data-step-count=3></div>
@@ -1049,7 +1092,7 @@ def response(e: Either[Error, String]): Unit = e match {
     <section>
       <span class="background"></span>
       <header>
-        <h2>リファクタリングを進める上でのメリット</h2>
+        <h2>リファクタリングを進める上で良かった点</h2>
       </header>
       <div class="wrap">
         <h3 class="aligncenter" data-step=true data-step-count=1>独立性が高い</h3>
@@ -1149,14 +1192,15 @@ def response(e: Either[Error, String]): Unit = e match {
       <counter data-count=4 />
     </section>
 
-    <!-- TODO middle ここでリファクタリングの全容をあらためて整理した図を出す -->
     <section>
       <span class="background"></span>
       <header>
         <h2>実際にやってみた</h2>
       </header>
       <div class="wrap">
-        <iframe width="100%" height="414" src="https://c.mangaloo.jp/embed/786151/760018/788948?align=center&width=600" frameborder="0"></iframe>
+        <div class="aligncenter">
+          <img width="450" src="./assets/img/matome.png">
+        </div>
       </div>
     </section>
 
