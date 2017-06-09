@@ -1,0 +1,76 @@
+.animate-show-visibility {
+  opacity: 0 !important;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+.animate-show-visibility.animated {
+  opacity: 1 !important;
+  visibility: visible;
+}
+
+.danger-text {
+  font-weight: bold;
+  color: c23;
+}
+
+.space-top {
+  margin-top: 30px;
+}
+
+.big-emoji {
+  font-size: 7em;
+}
+
+.example-block {
+  width: 100px;
+  height: 100px;
+  transition: all 500ms ease;
+}
+.example-block.red {
+  background: #c23;
+}
+.example-block.green {
+  background: #077;
+}
+.example-block.blue {
+  background: #346;
+}
+.example-block.purple {
+  background: #62b;
+}
+
+.go-right {
+  position: relative;
+  left: 0;
+}
+.go-right.animated {
+  left: calc(100% - 100px);
+}
+
+.go-left {
+  position: relative;
+  left: calc(100% - 100px);
+}
+.go-left.animated {
+  left: 0;
+}
+
+.go-bottom {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+}
+.go-bottom.animated {
+  top: 200px;
+}
+
+.go-top {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+}
+.go-top.animated {
+  top: -300px;
+}
