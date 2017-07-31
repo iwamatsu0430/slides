@@ -3,10 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Slide Template</title>
+  <title>DottyでWEBフレームワークを作ってみた</title>
   <link rel="stylesheet" type='text/css' media='all' href="../assets/css/base.css">
+  <link rel="stylesheet" type='text/css' media='all' href="../assets/css/base-mine.css">
   <link rel="stylesheet" type='text/css' media='all' href="../assets/css/colors.css">
   <link rel="stylesheet" type='text/css' media='all' href="../assets/css/svg-icons.css">
+  <link rel="stylesheet" type='text/css' media='all' href="../assets/css/highlight.css">
+  <link rel="stylesheet" type='text/css' media='all' href="./assets/css/style.css">
+  <script src="../assets/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -17,8 +22,272 @@
     <section>
       <span class="background"></span>
       <div class="wrap aligncenter">
-        <h1><strong>DottyでWEBフレームワークを作ってみた</strong></h1>
+        <h1>Scalaの次世代コンパイラ<br>DottyでWEBフレームワークを作ってみた</h1>
         <p class="text-intro space-top">2017/08/01<br>iwamatsu0430</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>誰</h1>
+      </header>
+      <div class="wrap">
+        <div class="content-left aligncenter">
+          <img class="aligncenter" style='width: 200px;' src="../assets/img/me_real2.jpg">
+        </div>
+        <div class="content-right aligncenter">
+          <h2>岩松 竜也</h2>
+          <p class="text-intro">
+            株式会社ビズリーチ HRMOS事業部<br>
+            2015年4月 新卒入社<br>
+            入社以来ScalaによるATS<small>※</small>開発に携わる<br>
+          </p>
+          <p>
+            <a href="http://event.scaladays.org/scaladays-cph-2017" target="_blank">Scala Days CopenHagen 2017</a>に行ってきました！
+          </p>
+          <iframe class="hatenablogcard" style="width:100%;height:155px;max-width:680px;" title="世界最大のScalaイベント「Scala Days@CPH」に行ってきた（後編）" src="https://hatenablog-parts.com/embed?url=http://reachone.bizreach.co.jp/entry/2017/07/11/114322" width="300" height="150" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright">※Applicant Tracking System</p>
+        </div>
+      </footer>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <iframe class="fullscreen" src="https://hrmos.co/"></iframe>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>Dottyって知ってます？？</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1 class="dotty-page">これです、これ</h1>
+      </header>
+      <iframe class="fullscreen" src="http://dotty.epfl.ch/"></iframe>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>何が変わるんですか？</h1>
+      </header>
+      <div class="wrap">
+        <div class="content-left">
+          <ul>
+            <li><h2>Union Type</h2></li>
+            <li><h2>traitパラメータ</h2></li>
+            <li><h2>Enum構文</h2></li>
+            <li><h2>他にも色々…</h2></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>使ってみたい…！</h1>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=2></span>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>WEBアプリを作りたい(ギョームに還元したい)</h2>
+        <h2 class="animate-show-visibility" data-step=1>👇</h2>
+        <h2 class="animate-show-visibility" data-step=1>Playframework等が対応していない</h2>
+        <h2 class="animate-show-visibility" data-step=2>👇</h2>
+        <h1 class="animate-show-visibility" data-step=2>WEBフレームワークがない😇</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>じゃあ作ってみましょう💪</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>環境構築<small>※</small></h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>コンパイラのインストール</h2>
+        <pre>$ brew install lampepfl/brew/dotty</pre>
+        <br>
+        <h2>sbt 0.13.15~にて</h2>
+        <pre>$ sbt new lampepfl/dotty.g8</pre>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright">※<a href="http://dotty.epfl.ch/" target="_blank">公式HP</a>より</p>
+        </div>
+      </footer>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>環境構築</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>簡単に作れました</h2>
+        <img src="./assets/img/dotty-project.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>実行</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <pre>$ sbt run</pre>
+        <br>
+        <img src="./assets/img/dotty-run.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>どんな感じで使える<br>フレームワークにするか…🤔</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>とりあえずこんなController</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <pre><code class="scala">package controllers
+
+import scala.concurrent.Future
+
+import jp.iwmat.sfw.mvc._
+
+class UserController extends Controller {
+
+  @GET("/users")
+  def list() = action {
+    OK
+  }
+
+  @GET("/users/:id")
+  def detail(id: Long) = async {
+    Future.successful(OK)
+  }
+
+  @POST("/users")
+  def add() = action[JSON] {
+    OK("hogehoge")
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>お手軽な感じにしてみたい</h2>
+        <br>
+        <pre><code class="scala">@GET("/users")
+def list() = action {
+  OK
+}</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>POSTメソッドかつJSON型リクエスト</h2>
+        <br>
+        <pre><code class="scala">@POST("/users")
+def add() = action[JSON] {
+  OK("hogehoge")
+}</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>まずコンパイルが<br>通るようにしてみる</h1>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <header>
+        <h1>とりあえずこんな感じ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <pre><code>trait Controller {
+  def action[A](f: implicit Request => Response): Action = ???
+  def async[A](f: implicit Request => Future[Response]): Action = ???
+}</code></pre>
+        <br>
+        <h2 class="animate-show-visibility" data-step=1>f: implicit A => B ❗</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>新機能使っちゃいました</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>REPLで確認してみましょう</h2>
+        <br>
+        <pre>$ dotr</pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>implicit function</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>関数の引数を暗黙的にできます</h2>
+        <img src="./assets/img/implicit-function.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>implicit function</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>scala 2.11.xで近い事をしようとしても…</h2>
+        <br>
+        <pre><code class="scala">def foo(f: String => String): String = f("a")
+def foo(s: String): String = s
+
+foo { implicit s =>
+  s + "b"
+}
+
+foo {
+  "b" // スコープに引数はいない
+}</code></pre>
       </div>
     </section>
 
@@ -34,5 +303,4 @@
 <script defer src="../assets/js/svg-icons.js"></script>
 
 </body>
-
 </html>
