@@ -1,0 +1,73 @@
+/* ==================================================
+
+   Base
+
+================================================== */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 5em;
+  line-height: 1em;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+small {
+  font-size: 0.5em;
+}
+
+pre {
+  font-size: 1.5em;
+  line-height: 1.3em;
+}
+
+/* ==================================================
+
+   Animation
+
+================================================== */
+
+.animate-show {
+  display: none !important;
+  transition: all 250ms ease;
+}
+.animate-show.animated {
+  display: inherit !important;
+}
+
+.animate-show-visibility {
+  opacity: 0 !important;
+  visibility: hidden;
+  transition: all 250ms ease;
+}
+.animate-show-visibility.animated {
+  opacity: 1 !important;
+  visibility: visible;
+}
+
+.animate-hide {
+  display: inherit !important;
+  transition: all 250ms ease;
+}
+.animate-hide.animated {
+  display: none !important;
+}
+
+.animate-hide-visibility {
+  opacity: 1 !important;
+  transition: all 250ms ease;
+}
+.animate-hide-visibility.animated {
+  opacity: 0 !important;
+}
