@@ -2,6 +2,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="content-language" content="ja">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DottyでWEBフレームワークを作ってみた</title>
   <link rel="stylesheet" type='text/css' media='all' href="../assets/css/base.css">
@@ -59,6 +60,12 @@
     <section>
       <span class="background"></span>
       <iframe class="fullscreen" src="https://hrmos.co/"></iframe>
+    </section>
+
+    <section class="fullscreen">
+      <div class="embed">
+        <iframe src="https://www.youtube.com/embed/UOKgrcWHENA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+      </div>
     </section>
 
     <section>
@@ -174,13 +181,7 @@
         <h1>とりあえずこんなController</h1>
       </header>
       <div class="wrap aligncenter">
-        <pre><code class="scala">package controllers
-
-import scala.concurrent.Future
-
-import jp.iwmat.sfw.mvc._
-
-class UserController extends Controller {
+        <pre><code class="scala">class UserController extends Controller {
 
   @GET("/users")
   def list() = action {
@@ -208,18 +209,6 @@ class UserController extends Controller {
         <pre><code class="scala">@GET("/users")
 def list() = action {
   OK
-}</code></pre>
-      </div>
-    </section>
-
-    <section>
-      <span class="background"></span>
-      <div class="wrap aligncenter">
-        <h2>POSTメソッドかつJSON型リクエスト</h2>
-        <br>
-        <pre><code class="scala">@POST("/users")
-def add() = action[JSON] {
-  OK("hogehoge")
 }</code></pre>
       </div>
     </section>
@@ -271,6 +260,7 @@ def add() = action[JSON] {
     </section>
 
     <section>
+      <span data-step-count=1></span>
       <span class="background"></span>
       <header>
         <h1>implicit function</h1>
@@ -288,6 +278,521 @@ foo { implicit s =>
 foo {
   "b" // スコープに引数はいない
 }</code></pre>
+        <br>
+        <h2 class="animate-show-visibility" data-step=1>明示的に暗黙的にする必要あり</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>OKの実装</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>色々な使い方が考えられる…🤔</h2>
+        <br>
+        <pre><code class="scala">OK // 空値
+OK(???) // 文字列を渡されたり…
+OK(???) // JSONを渡されたり…
+OK(???) // ファイル(画像など)を渡されたり…</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>OKの実装</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>こんなんでどうよ</h2>
+        <br>
+        <pre><code class="scala">trait Response(val status: Status) {
+  def body: Body
+  def headers: Map[String, String]
+}
+
+case class OK(body: Body, headers: Map[String, String]) extends Response(Status.OK)
+case object OK extends Response(Status.OK) {
+  ...
+  def apply[A <: String | Array[Byte] | JSON](body: A): Response = body match {
+    case value: String => OK(Body.StringBody(value), headers)
+    case value: Array[Byte] => OK(Body.BinaryBody(value), headers)
+    case value: JSON => OK(Body.JSONBody(value), headers)
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>？？？？？？</h2>
+        <br>
+        <pre><code class="scala">def apply[A <: String | Array[Byte] | JSON](body: A): Response = body match {
+  case value: String => OK(Body.StringBody(value), headers)
+  case value: Array[Byte] => OK(Body.BinaryBody(value), headers)
+  case value: JSON => OK(Body.JSONBody(value), headers)
+}</code></pre>
+        <br>
+        <h2 class="animate-show-visibility" data-step=1>Union Type！</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>Union Type, Intersection Type</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>「いずれかの性質を持つ型」<br>「いずれの性質も持つ型」<br>を表せる</h2>
+        <br>
+        <pre><code class="scala">// String、Array[Byte]、JSONのいずれかをMixinした何か
+[A <: String | Array[Byte] | JSON]
+
+// String、IntのいずれもMixinした何か
+[A <: String & Int]</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>Union Type</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <img src="./assets/img/union-type.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>Intersection Type</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <img src="./assets/img/intersection-type.png">
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <header>
+        <h1>OKの実装</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>再び見てみましょう</h2>
+        <br>
+        <pre><code class="scala">trait Response(val status: Status) {
+  def body: Body
+  def headers: Map[String, String]
+}
+
+case class OK(body: Body, headers: Map[String, String]) extends Response(Status.OK)
+case object OK extends Response(Status.OK) {
+  ...
+  def apply[A <: String | Array[Byte] | JSON](body: A): Response = body match {
+    case value: String => OK(Body.StringBody(value), headers)
+    case value: Array[Byte] => OK(Body.BinaryBody(value), headers)
+    case value: JSON => OK(Body.JSONBody(value), headers)
+  }
+}</code></pre>
+        <br>
+        <h2 class="animate-show-visibility" data-step=1>Status.OKはEnum？🤔</h2>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <header>
+        <h1>Enumでした</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>普通…？</h2>
+        <br>
+        <pre><code class="scala">trait Status(val enumTag: Int, val text: String) extends Enum
+object Status {
+  ...
+  case object OK extends Status(200, "200 OK")
+  ...
+}</code></pre>
+        <br>
+        <h2 class="animate-show-visibility" data-step=1>traitパラメータ❗</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>traitパラメータ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>Scala 2.11.xだとabstract classにする必要あり</h2>
+        <br>
+        <pre><code class="scala">abstract class Status(val enumTag: Int, val text: String)
+object Status {
+  ...
+  case object OK extends Status(200, "200 OK")
+  ...
+}</code></pre>
+        <br>
+        <h2>継承順を気にする必要がなくなりました 😚</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>ちなみにEnum構文</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>こういった使い方もあります。</h2>
+        <br>
+        <pre><code class="scala">// 起動モードのEnum
+enum class Mode
+object Mode {
+  def values: Seq[Mode] = Seq(Test, Development, Production)
+  def valueOf(value: String): Mode = value.toLowerCase match {
+    case "test" => Test
+    case "production" | "prod" => Production
+    case _ => Development
+  }
+
+  case Test
+  case Development
+  case Production
+}</code></pre>
+        <br>
+        <h2>詳しくは<a href="https://github.com/lampepfl/dotty/issues/1970#issue-207146907" target="_blank">小田好先生のIssue</a>へ</h2>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <header>
+        <h1>あとはアノテーション…</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <pre><code class="scala">class UserController extends Controller {
+
+  @GET("/users")
+  def list() = action {
+    OK
+  }
+
+  @GET("/users/:id")
+  def detail(id: Long) = async {
+    Future.successful(OK)
+  }
+
+  @POST("/users")
+  def add() = action[JSON] {
+    OK("hogehoge")
+  }
+}</code></pre>
+      <br>
+      <h2 class="animate-show-visibility" data-step=1>めんどくさそうなので、先にサーバ処理を実装💪</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>サーバ処理</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>ざっくりとこんな感じで処理</h2>
+        <img src="./assets/img/server-process.svg">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>サーバ処理</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>エラーが出て来るケースが多い</h2>
+        <img src="./assets/img/server-process-risks.svg">
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=2></span>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>エラーが出て来るケースが多い</h2>
+        <h2 class="animate-show-visibility" data-step=1>👇</h2>
+        <h2 class="animate-show-visibility" data-step=1>ちゃんと原因を蓄積したい</h2>
+        <h2 class="animate-show-visibility" data-step=2>👇</h2>
+        <h1 class="animate-show-visibility" data-step=2>(Scalaz | Cats).Validation<br>使おう！</h1>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>▂▅▇█▓▒░(’ω’)░▒▓█▇▅▂</h2>
+        <img width=600 src="./assets/img/dependency-death1.png">
+        <img width=600 src="./assets/img/dependency-death2.png">
+        <h2 class="animate-show-visibility" data-step=1>依存関係が解決できない😇</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h2>sbtプラグインに<a href="https://github.com/lampepfl/dotty/blob/master/sbt-dotty/src/dotty/tools/sbtplugin/DottyPlugin.scala#L30" target="_blank">答え</a>が！！</h2>
+        <pre><code class="scala">libraryDependencies += ("org.scalaz" %% "scalaz-core" % "7.2.13").withDottyCompat()</code></pre>
+        <br>
+        <h2>既存ライブラリを使用したい場合は"withDottyCompat"を使用する必要あり</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>これでDottyでもライブラリ(Scalaz)が使えるように！</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>だめでした</h1>
+        <img src="./assets/img/figure_devastated.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>なんでだめだった？</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <img src="./assets/img/stacktrace-full.png">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>なんでだめだった？</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>ぜんぜんわからない<br>俺たちは雰囲気でDottyを<br>使っている</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>implicit classがだめっぽい</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>🤔</h1>
+        <br>
+        <pre><code class="scala">def foo() = {
+  import scalaz._, Scalaz._
+  val s1 = "OK1".success[String] // ここで怒られる　
+  val s2 = "OK2".success[String]
+  s1 |@| s2
+}</code></pre>
+        <br>
+        <h2>いったん\/で対応。。。</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>アノテーションを使おう</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>アノテーションの役割(ざっくり)</h2>
+        <img src="./assets/img/annotation.svg">
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <pre><code class="scala">class UserController extends Controller {
+
+  @GET("/users")
+  def list() = action {
+    OK
+  }
+
+  @GET("/users/:id")
+  def detail(id: Long) = async {
+    Future.successful(OK)
+  }
+
+  @POST("/users")
+  def add() = action[JSON] {
+    OK("hogehoge")
+  }
+}</code></pre>
+      <br>
+      <h2>指定したパスに紐付けて関数を呼び出すよう<br>Macroを使えれば…🤔</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>だめでした</h1>
+        <img src="./assets/img/figure_devastated.png">
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=1></span>
+      <span class="background"></span>
+      <header>
+        <h1>なんでだめだった？</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>Macro廃止！😇</h1>
+        <h2>scala.metaを使いましょうね</h2>
+        <h2 class="animate-show-visibility" data-step=1>👇</h2>
+        <img class="animate-show-visibility" data-step=1 src="./assets/img/nosuch.png">
+        <h2 class="animate-show-visibility" data-step=1>NoSuchMethodによく引っかかる(未実装😇😇😇)</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>Javaアノテーションを使おう</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <pre><code class="java">import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface GET {
+  public String path();
+}</code></pre>
+        <br>
+      </div>
+    </section>
+
+    <section>
+      <span data-step-count=2></span>
+      <span class="background"></span>
+      <header>
+        <h1>Javaアノテーションを使おう</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h2>Cotntroller一覧を設定として渡す</h2>
+        <h2 class="animate-show-visibility" data-step=1>👇</h2>
+        <h2 class="animate-show-visibility" data-step=1>ClassLoaderで読み込み<br>アノテーションよりエンドポイントと処理を紐付け</h2>
+        <h2 class="animate-show-visibility" data-step=2>👇</h2>
+        <h1 class="animate-show-visibility" data-step=2>Routingができる！<small>※</small></h1>
+      </div>
+      <footer>
+        <div class="wrap">
+          <p class="alignright animate-show-visibility" data-step=2>※できたとは言ってない</p>
+        </div>
+      </footer>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>Java最高！</h1>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>まとめ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>できた</h1>
+        <br>
+        <ul>
+          <li><h2>Union Type</h2></li>
+          <li><h2>traitパラメータ</h2></li>
+          <li><h2>Enum構文</h2></li>
+          <li><h2>他にも色々…</h2></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>まとめ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>うれしい</h1>
+        <br>
+        <ul>
+          <li><h2>REPLがカラー</h2></li>
+          <li><h2>色々賢くなってる</h2></li>
+          <li><h2>始めやすい</h2></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>まとめ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>できなかった</h1>
+        <br>
+        <ul>
+          <li><h2>既存ライブラリのフル活用</h2></li>
+          <li><h2>Macro</h2></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>まとめ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1>うれしくない</h1>
+        <br>
+        <ul>
+          <li><h2>色々なバグを踏む</h2></li>
+          <li><h2>未実装な所を踏む</h2></li>
+          <li><h2>ドキュメントが正ではない場合がある</h2></li>
+          <li><h2>Scala 2.12.xではない(Future.unitとかない、Either)</h2></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <header>
+        <h1>レポジトリ</h1>
+      </header>
+      <div class="wrap aligncenter">
+        <h1><a href="https://github.com/iwamatsu0430/sfw" target="_blank">iwamatsu0430/sfw</a></h1>
+        <h2>鋭意製作中！</h2>
+      </div>
+    </section>
+
+    <section>
+      <span class="background"></span>
+      <div class="wrap aligncenter">
+        <h1>Thank you for Listening!</h1>
       </div>
     </section>
 

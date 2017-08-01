@@ -1,3 +1,9 @@
+/* ==================================================
+
+   Base
+
+================================================== */
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,6 +26,17 @@ ul {
 small {
   font-size: 0.5em;
 }
+
+pre {
+  font-size: 1.5em;
+  line-height: 1.3em;
+}
+
+/* ==================================================
+
+   Animation
+
+================================================== */
 
 .animate-show {
   display: none !important;
